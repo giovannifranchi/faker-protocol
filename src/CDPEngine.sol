@@ -27,6 +27,7 @@ contract CDPEngine is Pauser, Authorizer {
         uint256 minDeposit; // dust [rad] 10^45 - min deposit allowed for a collateral type in order to open a new CDP, it used to prevent low value CDPs that would not be profitable to liquidate
     }
 
+    // urn
     struct UserPosition {
         uint256 depositedCollateral; // ink [wad] 10^18 - total amount of collateral deposited by the user
         uint256 debt; // art [wad] 10^18 - total amount of dai borrowed by the user
