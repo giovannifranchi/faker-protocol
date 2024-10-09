@@ -35,6 +35,7 @@ contract CDPEngine is Pauser, Authorizer {
 
     mapping(bytes32 collaterId => CollateralInfo) public collaterals; // Ilks
     mapping(address user => mapping(bytes32 collateralId => UserPosition)) public userPositions; // urns
+    mapping (bytes32 collateralID => mapping (address user => uint amount)) public userCollateralCredit;  // gem - [wad] it tracks the amount of collateral a user has deposited in the system which is not used in any position
     mapping(address user => uint256 coins) public userCoins; // dai
     mapping(address user => uint256 debt) public userDebt; // sin
 
