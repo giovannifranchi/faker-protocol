@@ -2,9 +2,7 @@
 
 pragma solidity 0.8.24;
 
-
 abstract contract Authorizer {
-
     error Unauthorized();
     error AlreadyAuthorized();
     error NotYetAuthorized();
@@ -36,5 +34,4 @@ abstract contract Authorizer {
         isAuthorized[user] = false;
         emit AuthorizationRevoked(user);
     }
-
 }

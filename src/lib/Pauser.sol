@@ -2,9 +2,7 @@
 
 pragma solidity 0.8.24;
 
-
 abstract contract Pauser {
-
     error ContractPaused();
     error ContractLive();
 
@@ -14,7 +12,7 @@ abstract contract Pauser {
     bool public isLive;
 
     modifier whenLive() {
-        if(!isLive) revert ContractPaused();
+        if (!isLive) revert ContractPaused();
         _;
     }
 
@@ -24,16 +22,14 @@ abstract contract Pauser {
     }
 
     function _pause() internal {
-        if(!isLive) revert ContractPaused();
+        if (!isLive) revert ContractPaused();
         isLive = false;
         emit Paused(msg.sender);
     }
 
     function _unpause() internal {
-        if(isLive) revert ContractLive();
+        if (isLive) revert ContractLive();
         isLive = true;
         emit Unpaused(msg.sender);
     }
-
-
 }
